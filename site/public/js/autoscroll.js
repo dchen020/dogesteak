@@ -13,7 +13,11 @@ function autoScrollTo(el) {
 		if(currentY <= targetY-distance){
 		    scrollY = currentY+distance;
 		    window.scroll(0, scrollY);
-	    } else {
+	    } else if (currentY >= targetY + distance){
+		    scrollY = currentY - distance;
+		    window.scroll(0, scrollY);
+		}
+	    else {
 	    	window.scroll(0, targetY);
 		    clearTimeout(animator);
 	    }
